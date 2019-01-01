@@ -15,7 +15,7 @@ WORKDIR /hello
 RUN git clone https://github.com/MrAmbiG/hello_django.git
 RUN pip install pipenv
 WORKDIR /hello/django-hello
-pipenv install
+RUN pipenv install
 
 # expose port 80 of the container
 EXPOSE 80
