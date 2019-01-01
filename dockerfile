@@ -11,11 +11,11 @@ RUN mkdir /hello
 # Set the working directory to /hello
 WORKDIR /hello
 
-# Install any needed packages specified in requirements.txt
-RUN git clone https://github.com/MrAmbiG/django-hello.git
-
-# define a working directory
+# clone a repository from git
+RUN git clone https://github.com/MrAmbiG/hello_django.git
+RUN pip install pipenv
 WORKDIR /hello/django-hello
+pipenv install
 
 # expose port 80 of the container
 EXPOSE 80
