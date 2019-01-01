@@ -21,5 +21,6 @@ EXPOSE 80
 
 # start django server
 WORKDIR /hello/hello_django/hello_django
-RUN python manage.py runserver
+# RUN python manage.py runserver
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8001"]
 RUN curl http://127.0.0.1:8000
