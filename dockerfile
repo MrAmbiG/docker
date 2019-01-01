@@ -17,10 +17,10 @@ WORKDIR /hello/hello_django
 RUN pip install -r requirements.txt
 
 # expose port 80 of the container
-EXPOSE 80
+EXPOSE 8001
 
 # start django server
 WORKDIR /hello/hello_django/hello_django
 # RUN python manage.py runserver
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8001"]
-RUN curl http://127.0.0.1:8000
+RUN curl http://0.0.0.0:8000
