@@ -13,7 +13,12 @@ WORKDIR /hello
 
 # Install any needed packages specified in requirements.txt
 RUN git clone https://github.com/MrAmbiG/django-hello.git
+
+# define a working directory
 WORKDIR /hello/django-hello
+
+# expose port 80 of the container
+EXPOSE 80
 
 # start django server
 RUN python manage.py runserver
