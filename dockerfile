@@ -1,5 +1,5 @@
 # The syntax below FROM imagename:imageversion
-FROM python:3.7-alpine3.7
+FROM python:3.7.2
 
 # The enviroment variable ensures that the python output is set straight
 # to the terminal with out buffering it first
