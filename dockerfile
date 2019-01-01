@@ -12,7 +12,7 @@ RUN mkdir /hello
 WORKDIR /hello
 
 # Install any needed packages specified in requirements.txt
-RUN git clone https://github.com/MrAmbiG/django-hello.git
+RUN git clone https://github.com/MrAmbiG/hello_django.git
 WORKDIR /hello/django-hello
 
 # start django server
