@@ -11,9 +11,11 @@ RUN mkdir /hello
 # Set the working directory to /hello
 WORKDIR /hello
 
-# Install any needed packages specified in requirements.txt
+# clone a repository from git
 RUN git clone https://github.com/MrAmbiG/hello_django.git
+RUN pip install pipenv
 WORKDIR /hello/django-hello
+pipenv install
 
 # start django server
 RUN python manage.py runserver
