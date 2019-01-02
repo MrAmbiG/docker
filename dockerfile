@@ -12,6 +12,7 @@ RUN mkdir /hello
 WORKDIR /hello
 
 # clone a repository from git
+RUN apk update && apk upgrade && apk add --no-cache bash git openssh
 RUN git clone https://github.com/MrAmbiG/hello_django.git
 WORKDIR /hello/hello_django
 RUN pip install -r requirements.txt
