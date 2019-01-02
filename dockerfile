@@ -24,5 +24,5 @@ EXPOSE 8001
 
 # start django server
 WORKDIR /hello/hello_django/hello_django
-#RUN python manage.py runserver
-CMD ["python", "/hello/hello_django/hello_django/manage.py", "runserver", "0.0.0.0:8001"]
+# RUN django development server
+# CMD ["python", "/hello/hello_django/hello_django/manage.py", "runserver", "0.0.0.0:8001"]
