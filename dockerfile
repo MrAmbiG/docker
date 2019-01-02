@@ -11,8 +11,10 @@ RUN mkdir /hello
 # Set the working directory to /hello
 WORKDIR /hello
 
-# clone a repository from git
+# add git, bash and openssh
 RUN apk update && apk upgrade && apk add --no-cache bash git openssh
+
+# clone a repository from git
 RUN git clone https://github.com/MrAmbiG/hello_django.git
 WORKDIR /hello/hello_django
 RUN pip install -r requirements.txt
@@ -22,5 +24,5 @@ EXPOSE 8001
 
 # start django server
 WORKDIR /hello/hello_django/hello_django
-# RUN python manage.py runserver
+#RUN python manage.py runserver
 CMD ["python", "/hello/hello_django/hello_django/manage.py", "runserver", "0.0.0.0:8001"]
