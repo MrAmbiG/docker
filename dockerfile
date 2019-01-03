@@ -17,4 +17,4 @@ WORKDIR /code
 ADD code /code
 
 # Install packages listed in requirements.txt
-RUN pip install -r 'hello_django/requirements.txt'
+RUN pip install -r '/code/hello_django/requirements.txt'
