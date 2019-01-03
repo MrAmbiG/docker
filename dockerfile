@@ -23,7 +23,5 @@ RUN pip install -r requirements.txt
 EXPOSE 8001
 
 # start django server
-WORKDIR /hello/hello_django/hello_django
-# The below command is commented out since we are going to use the docker-compose to do it.
 # If you are doing just `docker build .` then you may uncomment the following.
 # CMD ["python", "/hello/hello_django/hello_django/manage.py", "runserver", "0.0.0.0:8001"]
