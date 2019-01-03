@@ -14,6 +14,7 @@ WORKDIR /code
 # Add the contents of the code directory from host to the /code directory of
 # the container. Please note that it won't add the code directory but adds the
 # contents of it.
-
 ADD code /code
-RUN ls -altr /code
+
+# Install packages listed in requirements.txt
+RUN pip install -r 'hello_django/requirements.txt'
