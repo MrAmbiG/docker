@@ -16,7 +16,7 @@ ADD hello_django /hello
 RUN apk update && apk upgrade && apk add --no-cache bash git openssh
 
 # clone a repository from git
-RUN git clone https://github.com/MrAmbiG/hello_django.git
+# RUN git clone https://github.com/MrAmbiG/hello_django.git
 WORKDIR /hello/hello_django
 RUN pip install -r requirements.txt
 
