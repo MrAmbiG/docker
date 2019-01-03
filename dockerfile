@@ -16,4 +16,4 @@ WORKDIR /code
 # contents of it.
 
 ADD code /code
-RUN ls -altr /hello
+RUN ls -altr /code
