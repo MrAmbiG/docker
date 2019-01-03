@@ -5,6 +5,11 @@ FROM python:3.7-alpine3.7
 # to the terminal with out buffering it first
 ENV PYTHONUNBUFFERED 1
 
+# Install some packages for our project
+RUN apk update && \
+    apk add --virtual build-deps gcc python-dev musl-dev && \
+    apk add postgresql-dev
+
 # create root directory for our project in the container
 RUN mkdir /code
 
@@ -16,5 +21,5 @@ WORKDIR /code
 # contents of it.
 ADD code /code
 
-# Install packages listed in requirements.txt
+# Install python packages listed in requirements.txt
 RUN pip install -r '/code/hello_django/requirements.txt'
