@@ -18,7 +18,7 @@ RUN apk update && apk upgrade && apk add --no-cache bash git openssh
 # clone a repository from git
 # RUN git clone https://github.com/MrAmbiG/hello_django.git
 WORKDIR /hello/hello_django
-RUN pip install -r requirements.txt
+RUN pip install -r /hello/hello_django/requirements.txt
 
 # expose port 80 of the container
 EXPOSE 8001
