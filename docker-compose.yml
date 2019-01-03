@@ -3,6 +3,6 @@ version: '3'
 services:
   web:
     build: .
-    command: python /code/hello_django/hello_django/manage.py runserver 0.0.0.0:8001
+    command: python /code/hello_django/manage.py runserver 0.0.0.0:8001
     ports:
       - "8001:8001"
