@@ -11,6 +11,7 @@ RUN mkdir /hello
 # Set the working directory to /hello
 WORKDIR /hello
 ADD hello_django /hello
+RUN ls -altr /hello
 
 # add git, bash and openssh
 RUN apk update && apk upgrade && apk add --no-cache bash git openssh
