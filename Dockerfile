@@ -9,5 +9,5 @@ RUN mkdir /code
 WORKDIR /code
 RUN pip install pipenv
 ADD code /code
-RUN pipenv install #--system --skip-lock
+RUN pipenv install
 CMD ["pipenv", "run", "python", "/code/hello_django/manage.py", "runserver", "0.0.0.0:8001"]
