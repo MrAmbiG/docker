@@ -6,8 +6,8 @@ services:
     command: python /code/hello_django/manage.py runserver 0.0.0.0:8001
     ports:
       - "8001:8001"
-    # volumes:
-    #   - .:/code
+    volumes:
+      - .:/code
     depends_on:
       - db
     networks:
