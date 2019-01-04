@@ -10,4 +10,4 @@ WORKDIR /code
 RUN pip install pipenv
 ADD code /code
 RUN pipenv install #--system --skip-lock
-CMD ["python", "/code/hello_django/manage.py", "runserver", "0.0.0.0:8001"]
+CMD ["pipenv", "run", "python", "/code/hello_django/manage.py", "runserver", "0.0.0.0:8001"]
