@@ -2,3 +2,4 @@ resources.yml
 __pycache__
 __pycache__/
 __pycache__/*
+*.md
