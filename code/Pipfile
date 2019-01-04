@@ -10,6 +10,7 @@ django-cors-headers = "*"
 djangorestframework = "*"
 pytz = "*"
 Django = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.7"
