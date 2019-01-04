@@ -5,10 +5,9 @@ FROM python:3.7-slim
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# Set work directory
+RUN mkdir /code
 WORKDIR /code
-
-# Install dependencies
 RUN pip install pipenv
 ADD code /code
 RUN pipenv install #--system --skip-lock
+CMD ["python", "/code/hello_django/manage.py", "runserver", "0.0.0.0:8001"]
