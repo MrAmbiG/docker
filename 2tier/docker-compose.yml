@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  # django container
+  web:
+    # location of the django dockerfile
+    build: ./web
+    command: python /code/hello_django/manage.py runserver 0.0.0.0:8001
+    ports:
+      - "8001:8001"
+    networks:
+      - backend
+
+  # database
+  db:
+    # location of the databse dockerfile
+    build: ./db
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+
+  # create a network
+  networks:
+    backend:
+      driver: bridge
