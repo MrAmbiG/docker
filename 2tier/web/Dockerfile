@@ -7,6 +7,5 @@ ENV PYTHONUNBUFFERED 1
 
 RUN mkdir /code
 WORKDIR /code
-RUN pip install pipenv
 ADD code /code
-RUN pipenv install
+RUN pip install -r requirement.txt
