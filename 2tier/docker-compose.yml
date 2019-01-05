@@ -20,7 +20,7 @@ services:
     networks:
       - backend
 
-  # create a network
-  networks:
-    backend:
-      driver: bridge
+# create a network
+networks:
+  backend:
+    driver: bridge
