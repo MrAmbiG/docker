@@ -13,4 +13,4 @@ WORKDIR /code
 # copy code
 ADD code /code
 RUN tree
-RUN pip install -r requirements.txt
+RUN pip install -r /code/requirements.txt
