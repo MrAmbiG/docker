@@ -44,5 +44,4 @@ networks:
 # volumes
 volumes:
   #pgdata:
-  volumes:
-    - ./postgres-data:/var/lib/postgresql/data
+  - ./postgres-data:/var/lib/postgresql/data
