@@ -41,7 +41,5 @@ networks:
   backend:
     driver: bridge
 
-# volumes
 volumes:
-  #pgdata:
-  postgres_data
+  postgres_data:
