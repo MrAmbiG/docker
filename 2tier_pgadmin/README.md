@@ -17,4 +17,4 @@ do the migrations. After this we can create our admin user.
 `docker-compose exec web python /code/hello_django/manage.py createsuperuser`
 Now we can log into our admin panel
 `<django app homepage>/admin`
-You can now access the pgadmin, add the postgresql server.
+You can now access the pgadmin, add the postgresql server and view the data.
