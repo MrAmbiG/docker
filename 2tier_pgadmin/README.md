@@ -1,12 +1,10 @@
-# 2Tier+
+# 2Tier
 ##### Two tier django app
 This will deploy 2 containers.
 1. web
 This is your django web server
 2. db
 This is your postgres database for the django web server
-3. dba  
-This is pgadmin container app. A GUI for postgres administration.
 
 `docker-compose up -d` (bring up our app) or  
 `docker-compose up --build -d` (rebuild containers and bring up our app)  
@@ -16,10 +14,6 @@ will bring up our django app.
 `docker-compose exec web python /code/hello_django/manage.py makemigrations` and  
 `docker-compose exec web python /code/hello_django/manage.py migrate` will  
 do the migrations. After this we can create our admin user.  
-`docker-compose exec web python /code/hello_django/manage.py createsuperuser`  
-Now we can log into our admin panel  
-`<django app homepage>/admin`  
-Access the pgadmin4 portal at port 8080 and then add server. Give psql as the name.    
-dbname - db  
-db password - postgres  
-db username - postgres  
+`docker-compose exec web python /code/hello_django/manage.py createsuperuser`
+Now we can log into our admin panel
+`<django app homepage>/admin`

@@ -5,34 +5,34 @@ services:
   web:
     # location of the django dockerfile
     build: ./web
+    depends_on:
+      - db
     command: python /code/hello_django/manage.py runserver 0.0.0.0:8001
     ports:
       - "8001:8001"
-    depends_on:
-      - db
     networks:
       - backend
 
   # database
   db:
-    # location of the databse dockerfile
-    build: ./db
+    image: postgres:10.1-alpine
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
     ports:
       - "5432:5432"
     networks:
       - backend
 
-  # pg admin
+  # pgadmin4
   dba:
-    # location of the pg admin dockerfile
-    build: ./dba
+    image: dpage/pgadmin4
     environment:
-      PGADMIN_DEFAULT_EMAIL: 'pgadmin@email.com'
+      PGADMIN_DEFAULT_EMAIL: 'pgadmin@mail.com'
       PGADMIN_DEFAULT_PASSWORD: 'admin@pg123'
-    ports:
-      - "8080:80"
     depends_on:
       - db
+    ports:
+      - "8080:80"
     networks:
       - backend
 
@@ -40,3 +40,7 @@ services:
 networks:
   backend:
     driver: bridge
+
+# volumes
+volumes:
+  pgdata:
