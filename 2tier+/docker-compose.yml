@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  # django container
+  web:
+    # location of the django dockerfile
+    build: ./web
+    command: python /code/hello_django/manage.py runserver 0.0.0.0:8001
+    ports:
+      - "8001:8001"
+    depends_on:
+      - db
+    networks:
+      - backend
+
+  # database
+  db:
+    # location of the databse dockerfile
+    build: ./db
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+
+  # pg admin
+  dba:
+    # location of the pg admin dockerfile
+    build: ./dba
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 'pgadmin@email.com'
+      PGADMIN_DEFAULT_PASSWORD: 'admin@pg123'
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    networks:
+      - backend
+
+# create a network
+networks:
+  backend:
+    driver: bridge
