@@ -17,7 +17,7 @@ services:
   db:
     image: postgres:10.1-alpine
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - pgdata:/var/lib/postgresql/data/
     ports:
       - "5432:5432"
     networks:
@@ -42,4 +42,4 @@ networks:
     driver: bridge
 
 volumes:
-  postgres_data:
+  pgdata:
