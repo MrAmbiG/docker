@@ -14,3 +14,4 @@ WORKDIR /code
 ADD code /code
 RUN tree
 RUN pip install -r /code/requirements.txt
+CMD python manage.py makemigrations; python manage.py migrate; gunicorn /code/hello_django/hello_django.wsgi -b 0.0.0.0:8001
