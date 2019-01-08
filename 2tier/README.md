@@ -2,7 +2,7 @@
 ##### Two tier django app
 This will deploy 2 containers.
 1. web
-This is your django web server
+This is your django web+app server
 2. db
 This is your postgres database for the django web server
 
