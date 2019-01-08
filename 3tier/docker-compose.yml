@@ -1,15 +1,11 @@
 version: '3'
 
 services:
-  # django container
+  # django web+app server
   web:
-    # location of the django dockerfile
     build: ./web
     depends_on:
       - db
-    #command: python /code/hello_django/manage.py runserver 0.0.0.0:8001
-    #command: gunicorn /code/hello_django/hello_django.wsgi:application --bind 0.0.0.0:8001
-    #command: python manage.py makemigrations && python manage.py migrate && gunicorn /code/hello_django/hello_django.wsgi -b 0.0.0.0:8001
     ports:
       - "8001:8001"
     networks:
@@ -43,5 +39,6 @@ networks:
   backend:
     driver: bridge
 
+# a volume for postgresql's persistant data
 volumes:
   postgres_data:
