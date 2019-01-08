@@ -18,8 +18,8 @@ RUN tree
 # install our dependencies
 RUN pip install -r /code/requirements.txt
 
-# expose the port 8001
-EXPOSE 8001
+# expose the port 8000
+EXPOSE 8000
 
 # define the default command to run when starting the container
 CMD ["gunicorn", "--chdir", "/code/hello_django", "--bind", ":8001", "hello_django.wsgi:application"]

@@ -7,7 +7,7 @@ services:
     depends_on:
       - db
     ports:
-      - "8001:8001"
+      - "8000:8000"
     networks:
       - backend
 
@@ -33,6 +33,13 @@ services:
       - "8111:80"
     networks:
       - backend
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 1337:80
+    depends_on:
+      - web
 
 # create a network
 networks:

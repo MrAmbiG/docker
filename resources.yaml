@@ -3,5 +3,10 @@ How to Dockerize a Django web app elegantly
     https://wsvincent.com/django-docker-postgresql/
     https://linuxhint.com/run_postgresql_docker_compose/
 
+    # 3 tier
+    https://ruddra.com/posts/docker-django-nginx-postgres/
+    http://pawamoy.github.io/2018/02/01/docker-compose-django-postgres-nginx.html
+    https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/
+
 repository
     https://github.com/MrAmbiG/container.git
