@@ -10,8 +10,16 @@ RUN apk update && \
     apk add --virtual build-deps gcc python-dev musl-dev && \
     apk add postgresql-dev tree
 WORKDIR /code
+
 # copy code
 ADD code /code
 RUN tree
+
+# install our dependencies
 RUN pip install -r /code/requirements.txt
-CMD python manage.py makemigrations; python manage.py migrate; gunicorn /code/hello_django/hello_django.wsgi -b 0.0.0.0:8001
+
+# expose the port 8001
+EXPOSE 8001
+
+# define the default command to run when starting the container
+CMD ["gunicorn", "--chdir", "/code/hello_django", "--bind", ":8001", "hello_django.wsgi:application"]
