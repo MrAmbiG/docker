@@ -15,6 +15,9 @@ WORKDIR /code
 ADD code /code
 RUN pip install pipenv && pipenv install --system
 
+# list folders and files (optional)
+RUN tree
+
 # expose the port 8000
 EXPOSE 8000
 
