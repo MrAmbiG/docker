@@ -7,7 +7,7 @@ services:
     depends_on:
       - db
     ports:
-      - "8000:8000"
+      - 8000:8000
     networks:
       - backend
 
@@ -17,7 +17,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data/
     ports:
-      - "5432:5432"
+      - 5432:5432
     networks:
       - backend
 
@@ -30,7 +30,7 @@ services:
     depends_on:
       - db
     ports:
-      - "8111:80"
+      - 8111:80
     networks:
       - backend
 
@@ -38,7 +38,7 @@ services:
   web:
     build: ./nginx
     ports:
-      - 8080:80
+      - 1337:80
     depends_on:
       - db
 
@@ -47,6 +47,6 @@ networks:
   backend:
     driver: bridge
 
-# create volumes
+# volumes
 volumes:
   pgdata:
