@@ -22,4 +22,4 @@ RUN pip install -r /code/requirements.txt
 EXPOSE 8000
 
 # define the default command to run when starting the container
-CMD ["gunicorn", "--chdir", "/code/hello_django", "--bind", ":8001", "hello_django.wsgi:application"]
+CMD ["gunicorn", "--chdir", "/code/hello_django", "--bind", ":8000", "hello_django.wsgi:application"]
