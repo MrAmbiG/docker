@@ -11,10 +11,10 @@ This is your postgres database for the django web server
 will bring up our django app.  
 
 # Update database (django migrations)
-`docker-compose exec app python /code/hello/hello/manage.py makemigrations` and  
-`docker-compose exec app python /code/hello_django/manage.py migrate` will  
+`docker-compose exec app python /code/hello/manage.py makemigrations` and  
+`docker-compose exec app python /code/hello/manage.py migrate` will  
 do the migrations. After this we can create our admin user.  
-`docker-compose exec app python /code/hello_django/manage.py createsuperuser`
+`docker-compose exec app python /code/hello/manage.py createsuperuser`
 Now we can log into our admin panel
 `<django app homepage>/admin`
 You can now access the pgadmin, add the postgresql server and view the data.
