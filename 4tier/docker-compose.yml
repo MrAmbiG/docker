@@ -4,6 +4,10 @@ services:
   # app server (gunicorn)
   app:
     build: ./django
+    volumes:
+      #- ./app/:/usr/src/app/
+      - static_volume:/usr/src/app/staticfiles
+      - media_volume:/usr/src/app/mediafiles
     depends_on:
       - db
     ports:
@@ -36,6 +40,9 @@ services:
   # web server (nginx)
   web:
     build: ./nginx
+    volumes:
+      - static_volume:/usr/src/app/staticfiles
+      - media_volume:/usr/src/app/mediafiles
     ports:
       - 1337:80
     depends_on:
@@ -53,3 +60,5 @@ networks:
 # volumes
 volumes:
   pgdata:
+  static_volume:
+  media_volume:
