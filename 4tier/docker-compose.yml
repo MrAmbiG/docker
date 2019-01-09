@@ -1,8 +1,9 @@
 version: '3.7'
 
 services:
+  # app server (gunicorn)
   app:
-    build: ./web
+    build: ./django
     depends_on:
       - db
     ports:
@@ -10,6 +11,7 @@ services:
     networks:
       - backend
 
+  # database server (postgresql)
   db:
     build: ./db
     volumes:
@@ -19,6 +21,7 @@ services:
     networks:
       - backend
 
+  # database admin panel (pgadmin4)
   dba:
     build: ./dba
     environment:
@@ -30,6 +33,15 @@ services:
       - "8111:80"
     networks:
       - backend
+
+  # web server (nginx)
+  web:
+    build: ./nginx
+      ports:
+        - 8000:80
+      depends_on:
+        - db
+
 
 # create a network
 networks:
