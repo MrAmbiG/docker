@@ -1,5 +1,5 @@
 # Pull base image
-image: dpage/pgadmin4
+FROM dpage/pgadmin4
 
 # expose the port 80
 EXPOSE 80
