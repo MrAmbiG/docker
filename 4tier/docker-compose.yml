@@ -37,16 +37,16 @@ services:
   # web server (nginx)
   web:
     build: ./nginx
-      ports:
-        - 8000:80
-      depends_on:
-        - db
-
+    ports:
+      - 8000:80
+    depends_on:
+      - db
 
 # create a network
 networks:
   backend:
     driver: bridge
 
+# create volumes
 volumes:
   pgdata:
