@@ -1,8 +1,7 @@
-version: '3'
+version: '3.7'
 
 services:
-  # django web+app server
-  web:
+  app:
     build: ./web
     depends_on:
       - db
@@ -11,19 +10,17 @@ services:
     networks:
       - backend
 
-  # database
   db:
-    image: postgres:10.1-alpine
+    build: ./db
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - pgdata:/var/lib/postgresql/data/
     ports:
       - "5432:5432"
     networks:
       - backend
 
-  # pgadmin4
   dba:
-    image: dpage/pgadmin4
+    build: ./dba
     environment:
       PGADMIN_DEFAULT_EMAIL: 'pgadmin@mail.com'
       PGADMIN_DEFAULT_PASSWORD: 'admin@pg123'
@@ -34,23 +31,10 @@ services:
     networks:
       - backend
 
-  nginx:
-    build: ./nginx
-    volumes:
-      - static_volume:/usr/src/app/staticfiles
-      - media_volume:/usr/src/app/mediafiles
-    ports:
-      - 1337:80
-    depends_on:
-      - web
-
 # create a network
 networks:
   backend:
     driver: bridge
 
-# a volume for postgresql's persistant data
 volumes:
-  postgres_data:
-  static_volume:
-  media_volume:
+  pgdata:

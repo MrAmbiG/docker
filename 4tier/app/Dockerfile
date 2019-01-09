@@ -11,15 +11,12 @@ RUN apk update && \
     apk add postgresql-dev tree
 WORKDIR /code
 
-# copy code
-ADD code /code
-RUN tree
-
 # install our dependencies
-RUN pip install -r /code/requirements.txt
+ADD code /code
+RUN pip install pipenv && pipenv install --system
 
 # expose the port 8000
 EXPOSE 8000
 
 # define the default command to run when starting the container
-CMD ["gunicorn", "--chdir", "/code/hello_django", "--bind", ":8000", "hello_django.wsgi:application"]
+CMD ["gunicorn", "--chdir", "hello", "--bind", ":8000", "hello.wsgi:application"]
