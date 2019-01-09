@@ -9,7 +9,8 @@ services:
     ports:
       - 8000:8000
     networks:
-      - backend
+      - network_db
+      - network_nginx
 
   # database server (postgresql)
   db:
@@ -19,7 +20,7 @@ services:
     ports:
       - 5432:5432
     networks:
-      - backend
+      - network_db
 
   # database admin panel (pgadmin4)
   dba:
@@ -32,7 +33,7 @@ services:
     ports:
       - 8111:80
     networks:
-      - backend
+      - network_db
 
   # web server (nginx)
   web:
@@ -41,10 +42,14 @@ services:
       - 1337:80
     depends_on:
       - db
+    networks:
+      - network_nginx
 
 # create a network
 networks:
-  backend:
+  network_db:
+    driver: bridge
+  network_nginx:
     driver: bridge
 
 # volumes
