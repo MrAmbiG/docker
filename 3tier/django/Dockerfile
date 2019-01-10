@@ -14,13 +14,3 @@ COPY Pipfile Pipfile.lock
 
 # install our dependencies
 RUN tree
-WORKDIR /djangoapp
-RUN pip install pipenv
-RUN pipenv install --system
-
-
-# expose the port 8000
-EXPOSE 8000
-
-# define the default command to run when starting the container
-CMD ["gunicorn", "--chdir", "/djangoapp", "--bind", ":8000", "djangoapp.wsgi:application"]
