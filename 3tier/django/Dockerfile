@@ -13,6 +13,7 @@ ADD djangoapp /djangoapp
 COPY Pipfile Pipfile.lock
 
 # install our dependencies
+WORKDIR /djangoapp
 RUN pip install pipenv
 RUN pipenv install --system
 RUN tree
