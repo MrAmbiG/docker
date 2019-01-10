@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  djangoapp:
-    build: ./djangoapp
+  django:
+    build: ./django
     ports:
       - 8000:8000
     networks:
@@ -15,7 +15,7 @@ services:
       networks:
         - nw_nginx
       depends_on:
-        - djangoapp
+        - django
 
 # create a network
 networks:
