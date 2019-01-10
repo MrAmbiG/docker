@@ -6,8 +6,8 @@ services:
     build: ./django
     volumes:
       #- ./app/:/usr/src/app/
-      - static_volume:/usr/src/app/staticfiles
-      - media_volume:/usr/src/app/mediafiles
+      - static_volume:/code/hello/staticfiles
+      - media_volume:/code/hello/mediafiles
     depends_on:
       - db
     ports:
@@ -41,8 +41,16 @@ services:
   web:
     build: ./nginx
     volumes:
-      - static_volume:/usr/src/app/staticfiles
-      - media_volume:/usr/src/app/mediafiles
+      - static_volume:/code/hello/staticfiles
+      - media_volume:/code/hello/mediafiles
+    environment:
+      - SQL_ENGINE=django.db.backends.postgresql
+      - SQL_DATABASE=postgres
+      - SQL_USER=postgres
+      - SQL_PASSWORD=postgres
+      - SQL_HOST=db
+      - SQL_PORT=5432
+      - DATABASE=postgres
     ports:
       - 1337:80
     depends_on:

@@ -15,11 +15,17 @@ WORKDIR /code
 ADD code /code
 RUN pip install pipenv && pipenv install --system
 
+# copy entrypoint.sh
+COPY ./entrypoint.sh /code/entrypoint.sh
+
 # list folders and files (optional)
 RUN tree
 
 # expose the port 8000
 EXPOSE 8000
+
+# run entrypoint.sh
+ENTRYPOINT ["/code/entrypoint.sh"]
 
 # define the default command to run when starting the container
 CMD ["gunicorn", "--chdir", "hello", "--bind", ":8000", "hello.wsgi:application"]
