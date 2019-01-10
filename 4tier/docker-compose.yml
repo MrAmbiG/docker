@@ -23,6 +23,7 @@ services:
       - pgdata:/var/lib/postgresql/data/
     networks:
       - network_db
+      - network_dba
 
   # database admin panel (pgadmin4)
   dba:
