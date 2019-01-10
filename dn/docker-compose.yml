@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  # app server (gunicorn)
+  django:
+    build: ./django
+    volumes:
+      - static_volume:/code/hello/staticfiles
+    networks:
+      - backend
+
+  # web server (nginx)
+  nginx:
+    build: ./nginx
+    volumes:
+      - static_volume:/code/hello/staticfiles
+    ports:
+      - 8000:80
+    networks:
+      - backend
+
+# create a network
+networks:
+  backend:
+    driver: bridge
+
+# volumes
+volumes:
+  static_volume:
