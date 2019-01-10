@@ -16,7 +16,7 @@ COPY Pipfile Pipfile.lock ./djangoapp/
 # install our dependencies
 WORKDIR /djangoapp
 RUN pip install pipenv
-RUN pipenv install --system
+RUN pipenv install --system --ignore-pipfile
 
 
 # expose the port 8000
