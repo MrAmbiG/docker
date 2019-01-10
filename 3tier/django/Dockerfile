@@ -13,10 +13,11 @@ ADD djangoapp /djangoapp
 COPY Pipfile Pipfile.lock
 
 # install our dependencies
+RUN tree
 WORKDIR /djangoapp
 RUN pip install pipenv
 RUN pipenv install --system
-RUN tree
+
 
 # expose the port 8000
 EXPOSE 8000
