@@ -6,6 +6,8 @@ services:
     build: ./django
     volumes:
       - static_volume:/code/hello/staticfiles
+    ports:
+      - 8001:80
     networks:
       - backend
 
