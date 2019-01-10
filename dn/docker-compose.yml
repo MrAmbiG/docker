@@ -7,7 +7,7 @@ services:
     volumes:
       - static_volume:/code/hello/staticfiles
     ports:
-      - 8001:80
+      - 8000:8000
     networks:
       - backend
 
@@ -17,7 +17,7 @@ services:
     volumes:
       - static_volume:/code/hello/staticfiles
     ports:
-      - 8000:80
+      - 8001:8000
     networks:
       - backend
 
