@@ -10,8 +10,8 @@ services:
       - media_volume:/code/hello/mediafiles
     depends_on:
       - db
-    ports:
-      - 8000:8000
+    # ports:
+    #   - 8000:8000
     networks:
       - network_db
       - network_nginx
@@ -53,7 +53,7 @@ services:
       - SQL_PORT=5432
       - DATABASE=postgres
     ports:
-      - 1337:80
+      - 1337:8000
     depends_on:
       - app
     networks:
