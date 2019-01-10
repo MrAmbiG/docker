@@ -11,14 +11,11 @@ RUN apk add --virtual build-deps gcc python-dev musl-dev tree
 
 # copy code
 ADD djangoapp ./djangoapp
-COPY Pipfile ./
-COPY Pipfile.lock ./
+COPY requirements.txt ./djangoapp
 
 # install our dependencies
-RUN ls
-RUN pip install pipenv
-RUN pipenv install --system --ignore-pipfile
-
+WORKDIR ./djangoapp
+RUN pip install -r requirements.txt
 
 # expose the port 8000
 EXPOSE 8000
