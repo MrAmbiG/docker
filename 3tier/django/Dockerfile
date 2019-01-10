@@ -11,7 +11,16 @@ RUN apk add --virtual build-deps gcc python-dev musl-dev tree
 
 # copy code
 ADD djangoapp /djangoapp
-COPY Pipfile Pipfile.lock
+COPY Pipfile Pipfile.lock ./djangoapp/
 
 # install our dependencies
-RUN ls -altr
+WORKDIR /djangoapp
+RUN pip install pipenv
+RUN pipenv install --system
+
+
+# expose the port 8000
+EXPOSE 8000
+
+# define the default command to run when starting the container
+CMD ["gunicorn", "--chdir", "/djangoapp", "--bind", ":8000", "djangoapp.wsgi:application"]
