@@ -28,4 +28,5 @@ EXPOSE 8000
 # ENTRYPOINT ["/code/entrypoint.sh"]
 
 # define the default command to run when starting the container
+CMD ["python" "/code/hello/manage.py" "collectstatic" "--no-input"]
 CMD ["gunicorn", "--chdir", "hello", "--bind", ":8000", "hello.wsgi:application"]
