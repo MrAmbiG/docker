@@ -11,7 +11,6 @@ RUN apk update && apk add --virtual build-deps gcc python-dev musl-dev tree
 # copy code
 ADD djangoapp /djangoapp
 COPY Pipfile Pipfile.lock
-RUN tree
 
 # install our dependencies
 RUN pip install pipenv
