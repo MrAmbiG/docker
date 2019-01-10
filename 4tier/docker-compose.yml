@@ -35,7 +35,7 @@ services:
     ports:
       - 8111:80
     networks:
-      - network_db
+      - network_dba
 
   # web server (nginx)
   web:
@@ -61,6 +61,8 @@ services:
 # create a network
 networks:
   network_db:
+    driver: bridge
+  network_dba:
     driver: bridge
   network_nginx:
     driver: bridge

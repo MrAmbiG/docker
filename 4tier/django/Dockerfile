@@ -25,7 +25,7 @@ RUN tree
 EXPOSE 8000
 
 # run entrypoint.sh
-ENTRYPOINT ["/code/entrypoint.sh"]
+# ENTRYPOINT ["/code/entrypoint.sh"]
 
 # define the default command to run when starting the container
 CMD ["gunicorn", "--chdir", "hello", "--bind", ":8000", "hello.wsgi:application"]
