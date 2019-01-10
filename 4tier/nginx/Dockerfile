@@ -6,4 +6,4 @@ RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/conf.d
 
 # expose the port 80
-EXPOSE 80
+EXPOSE 8000
