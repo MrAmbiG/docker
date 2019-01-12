@@ -24,4 +24,4 @@ EXPOSE 8000
 # define the default command to run when starting the container
 # CMD ["gunicorn", "--chdir", "/djangoapp", "--bind", ":8000", "djangoapp.wsgi:application"]
 RUN ls -altr
-CMD ["python", "/djangoapp/djangoapp/manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "/djangoapp/manage.py", "runserver", "0.0.0.0:8000"]
