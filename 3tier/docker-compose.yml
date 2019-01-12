@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  # django container
+  djangoapp:
+    # location of the django dockerfile
+    build: ./djangoapp
+    ports:
+      - "8000:8000"
+    networks:
+      - backend
+
+# create a network
+networks:
+  backend:
+    driver: bridge
