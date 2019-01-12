@@ -16,7 +16,7 @@ ADD djangoapp /djangoapp
 ADD requirements.txt /djangoapp/requirements.txt
 
 # install our dependencies
-pip install -r /djangoapp/requirements.txt
+RUN pip install -r /djangoapp/requirements.txt
 
 # expose the port 8000
 EXPOSE 8000
