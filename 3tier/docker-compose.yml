@@ -10,6 +10,15 @@ services:
     networks:
       - backend
 
+  nginx:
+    build: ./nginx
+    ports:
+      - 1337:80
+    depends_on:
+      - djangoapp
+    networks:
+      - backend
+
 # create a network
 networks:
   backend:
