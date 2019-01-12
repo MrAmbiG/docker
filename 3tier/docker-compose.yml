@@ -5,6 +5,10 @@ services:
   djangoapp:
     # location of the django dockerfile
     build: ./django
+    volumes:
+      # The below mapping ensures that changes at ./django/djangoapp of host get
+      # reflected in realtime at /djangoapp of the container
+      - ./django/djangoapp:/djangoapp
     ports:
       - "8000:8000"
     networks:
@@ -19,7 +23,9 @@ services:
     networks:
       - backend
 
-# create a network
 networks:
   backend:
     driver: bridge
+
+volumes:
+  data:
