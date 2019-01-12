@@ -1,14 +1,21 @@
 version: '3'
 
 services:
-  # django container
   djangoapp:
-    # location of the django dockerfile
     build: ./django
     ports:
       - "8000:8000"
     networks:
       - backend
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 1337:80
+    networks:
+      - backend
+    depends_on:
+      - djangoapp
 
 # create a network
 networks:
