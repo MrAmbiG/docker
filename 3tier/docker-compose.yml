@@ -4,7 +4,7 @@ services:
   # django container
   djangoapp:
     # location of the django dockerfile
-    build: ./djangoapp
+    build: ./django
     ports:
       - "8000:8000"
     networks:
