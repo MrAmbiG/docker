@@ -9,8 +9,10 @@ services:
       # The below mapping ensures that changes at ./django/djangoapp of host get
       # reflected in realtime at /djangoapp of the container
       - ./django/djangoapp:/djangoapp
-    ports:
-      - "8000:8000"
+      - static_volume:/djangoapp/static
+      - media_volume:/djangoapp/media
+    # ports:
+    #   - "8000:8000"
     networks:
       - backend
 
@@ -22,10 +24,15 @@ services:
       - djangoapp
     networks:
       - backend
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - static_volume:/djangoapp/static
+      - media_volume:/djangoapp/media
 
 networks:
   backend:
     driver: bridge
 
 volumes:
-  data:
+  static_volume:
+  media_volume:
