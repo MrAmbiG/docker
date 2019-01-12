@@ -1,12 +1,12 @@
-# 2Tier
+# 3Tier
 ##### Two tier django app
 This will deploy 2 containers.
-1. App ()
+1. app (django+gunicorn)
 This is your django web server powered by gunicorn.
-2. db
+2. db (postgres)
 This is your postgres database for the django web server
-3. dba
-pgadmin4 container
+3. nginx
+nginx web server which serves static files
 
 `docker-compose up -d` (bring up our app) or  
 `docker-compose up --build -d` (rebuild containers and bring up our app)  

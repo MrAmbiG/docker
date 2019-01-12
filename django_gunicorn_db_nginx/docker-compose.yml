@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  # django container
+  djangoapp:
+    # location of the django dockerfile
+    build: ./django
+    volumes:
+      # The below mapping ensures that changes at ./django/djangoapp of host get
+      # reflected in realtime at /djangoapp of the container
+      - ./django/djangoapp:/djangoapp
+      - static_volume:/djangoapp/static
+      - media_volume:/djangoapp/media
+    networks:
+      - network_db
+      - network_web
+
+  # database
+  db:
+    build: ./postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    networks:
+      - network_db
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 8000:80
+    depends_on:
+      - djangoapp
+    networks:
+      - network_web
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - static_volume:/djangoapp/static
+      - media_volume:/djangoapp/media
+
+networks:
+  network_web:
+    driver: bridge
+  network_db:
+    driver: bridge
+
+volumes:
+  static_volume:
+  media_volume:
+  postgres_data:
