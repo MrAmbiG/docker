@@ -11,8 +11,6 @@ services:
       - ./django/djangoapp:/djangoapp
       - static_volume:/djangoapp/static
       - media_volume:/djangoapp/media
-    # ports:
-    #   - "8000:8000"
     networks:
       - backend
 
