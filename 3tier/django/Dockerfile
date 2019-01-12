@@ -13,12 +13,10 @@ WORKDIR /djangoapp
 
 # copy code
 ADD djangoapp /djangoapp
-ADD /djangoapp/Pipfile.lock
+ADD requirements.txt /djangoapp/requirements.txt
 
 # install our dependencies
-RUN pip install pipenv
-RUN pipenv install Pipfile.lock
-
+pip install -r /djangoapp/requirements.txt
 
 # expose the port 8000
 EXPOSE 8000
