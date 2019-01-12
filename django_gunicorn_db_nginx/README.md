@@ -13,10 +13,10 @@ nginx web server which serves static files
 will bring up our django app.  
 
 # Update database (django migrations)
-`docker-compose exec web python /code/hello_django/manage.py makemigrations` and  
-`docker-compose exec web python /code/hello_django/manage.py migrate` will  
+`docker-compose exec djangoapp python /djangoapp/manage.py makemigrations` and  
+`docker-compose exec djangoapp python /djangoapp/manage.py migrate` will  
 do the migrations. After this we can create our admin user.  
-`docker-compose exec web python /code/hello_django/manage.py createsuperuser`
+`docker-compose exec djangoapp python /djangoapp/manage.py createsuperuser`
 Now we can log into our admin panel
 `<django app homepage>/admin`
 You can now access the pgadmin, add the postgresql server and view the data.
