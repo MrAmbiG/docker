@@ -16,7 +16,7 @@ services:
       - network_web
 
   # database
-  db:
+  postgres:
     build: ./postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data/
