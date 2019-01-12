@@ -22,4 +22,5 @@ RUN pip install -r /djangoapp/requirements.txt
 EXPOSE 8000
 
 # define the default command to run when starting the container
-CMD ["gunicorn", "--chdir", "/djangoapp", "--bind", ":8000", "djangoapp.wsgi:application"]
+# CMD ["gunicorn", "--chdir", "/djangoapp", "--bind", ":8000", "djangoapp.wsgi:application"]
+CMD ["python", "/djangoapp/djangoapp/manage.py", "runserver", "0.0.0.0:8000"]
