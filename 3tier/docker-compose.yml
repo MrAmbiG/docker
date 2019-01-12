@@ -17,7 +17,7 @@ services:
   nginx:
     build: ./nginx
     ports:
-      - 8001:80
+      - 8000:80
     depends_on:
       - djangoapp
     networks:
