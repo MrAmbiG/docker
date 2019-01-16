@@ -34,7 +34,7 @@ services:
     depends_on:
       - postgres
     ports:
-      - "8111:80"
+      - "5432:80"
 
   nginx:
     build: ./nginx
