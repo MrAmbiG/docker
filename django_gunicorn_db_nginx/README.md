@@ -28,9 +28,9 @@ Nginx - nginx:1.15.0-alpine (official)
 # Highlights
  - Alpine images which are as small as 5mb for smaller footprint.  
  - Persistent database and media storage.  
- - Persistent shared volume with static files for Django and Nginx.  
- - Bringing up the entire Setup takes around 3 seconds.  
- - Building up (docker-compose up -d --build) takes only few seconds  
+ - Persistent shared volume with static files for Django and Nginx.
+ - Building up (`docker-compose up -d --build`) takes only few seconds.  
+ - Subsequent bringing up (`docker-compose up -d`) the entire Setup takes around 3 seconds.  
 
 # Test
  - Go to https://labs.play-with-docker.com/ (I hope it is still there)
