@@ -27,16 +27,15 @@ services:
   # pgadmin4 unofficial image
   pgadmin:
     build: ./pgadmin
-    networks:
-      - pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: 'pgadmin@mail.com'
       PGADMIN_DEFAULT_PASSWORD: 'admin@pg123'
-      PGADMIN_LISTEN_PORT: 81
     depends_on:
       - postgres
     ports:
-      - "5432:81"
+      - "8111:80"      
+    networks:
+      - pgadmin
 
   nginx:
     build: ./nginx
@@ -58,7 +57,7 @@ networks:
     driver: bridge
   pgadmin:
     driver: bridge
-    
+
 volumes:
   static_volume:
   media_volume:
