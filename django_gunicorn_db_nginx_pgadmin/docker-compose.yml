@@ -22,12 +22,13 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     networks:
       - network_db
+      - pgadmin
 
   # pgadmin4 unofficial image
   pgadmin:
     build: ./pgadmin
     networks:
-      - network_db
+      - pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: 'pgadmin@mail.com'
       PGADMIN_DEFAULT_PASSWORD: 'admin@pg123'
@@ -55,7 +56,9 @@ networks:
     driver: bridge
   network_db:
     driver: bridge
-
+  pgadmin:
+    driver: bridge
+    
 volumes:
   static_volume:
   media_volume:
