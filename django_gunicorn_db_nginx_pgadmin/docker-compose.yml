@@ -31,10 +31,11 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: 'pgadmin@mail.com'
       PGADMIN_DEFAULT_PASSWORD: 'admin@pg123'
+      PGADMIN_LISTEN_PORT: 81
     depends_on:
       - postgres
     ports:
-      - "5432:80"
+      - "5432:81"
 
   nginx:
     build: ./nginx
