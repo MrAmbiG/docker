@@ -29,4 +29,11 @@ Nginx - nginx:1.15.0-alpine (official)
  - Alpine images which are as small as 5mb for smaller footprint.  
  - Persistent database and media storage.  
  - Persistent shared volume with static files for Django and Nginx.  
- - Bringing up the entire Setup takes around 3 seconds.
+ - Bringing up the entire Setup takes around 3 seconds.  
+ - Building up (docker-compose up -d --build) takes only few seconds  
+
+# Test
+ - Go to https://labs.play-with-docker.com/ (I hope it is still there)
+ - clone this repository
+ - cd into django_gunicorn_db_nginx where the compose file is located.  
+ - docker-compose up -d --build
