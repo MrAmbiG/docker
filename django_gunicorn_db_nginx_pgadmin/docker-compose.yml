@@ -32,7 +32,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: 'pgadmin@mail.com'
       PGADMIN_DEFAULT_PASSWORD: 'admin@pg123'
     depends_on:
-      - db
+      - postgres
     ports:
       - "8111:80"
 
